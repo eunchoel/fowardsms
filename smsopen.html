@@ -6,6 +6,30 @@
 <meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">  
+    var Request = function() {  
+        this.getParameter = function(name) {  
+            var rtnval = '';  
+            var nowAddress = unescape(location.href);  
+            var parameters = (nowAddress.slice(nowAddress.indexOf('?') + 1,  
+                    nowAddress.length)).split('&');  
+            for (var i = 0; i < parameters.length; i++) {  
+                var varName = parameters[i].split('=')[0];  
+                if (varName.toUpperCase() == name.toUpperCase()) {  
+                    rtnval = parameters[i].split('=')[1];  
+                    break;  
+                }  
+            }  
+            return rtnval;  
+        }  
+    }  
+    var request = new Request();  
+</script>  
+  
+<script type="text/javscript>  
+	var paramValue = request.getParameter('body');
+	alert(paramValue);
+</script> 
 <script>
 	$(document).ready(function(){
 		$("#phone").click(function(){
