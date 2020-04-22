@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>모바일에서 전화걸기/문자보내기</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="format-detection" content="telephone=no">
+<script src="<a href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" target="_blank" class="con_link">https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js</a>"></script>
+<script>
+	$(document).ready(function(){
+		$("#phone").click(function(){
+			location.href="tel:010-1234-5678";
+		});
+		$("#sms").click(function(){
+			location.href="sms:010-1234-5678";
+		});
+		$("#mail").click(function(){
+			location.href="mailto:abc111@gmail.com?subject=테스트중입니다";
+		});
+	 });
+ </script>
+ </head>
+ <body>
+	<br>
+	<h1>모바일 기능</h1>
+	<h2>모바일에서 전화걸기 - 방법1</h2>
+	<a href ="tel:02-1234-5678">전화걸기</a>
+	<br>
+	<h2>모바일에서 전화걸기 - 방법2</h2>
+	<input type="tel" placeholder="관리자와 통화하기" id="phone">
+	<h2>모바일에서 문자보내기-방법1</h2>
+	<p><a href ="sms:010-1234-56785">문자보내기</a></p>
+	<br>
+	<h2>모바일에서 문자보내기-방법2</h2>
+	<input type="tel" placeholder="관리자에게 문자보내기" id="sms">
+ </body>
+ </html>
