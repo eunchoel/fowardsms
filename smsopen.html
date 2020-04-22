@@ -9,10 +9,10 @@
 <script>
 	$(document).ready(function(){
 		$("#phone").click(function(){
-			location.href="tel:010-1234-5678";
+			location.href="tel:01038823099";
 		});
 		$("#sms").click(function(){
-			location.href="sms:010-1234-5678";
+			location.href="sms:01038823099&body=안녕하세요!!";
 		});
 		$("#mail").click(function(){
 			location.href="mailto:abc111@gmail.com?subject=테스트중입니다";
@@ -24,14 +24,15 @@
 	<br>
 	<h1>모바일 기능</h1>
 	<h2>모바일에서 전화걸기 - 방법1</h2>
-	<a href ="tel:02-1234-5678">전화걸기</a>
+	<a href ="tel:01038823099">전화걸기</a>
 	<br>
 	<h2>모바일에서 전화걸기 - 방법2</h2>
 	<input type="tel" placeholder="관리자와 통화하기" id="phone">
+	 <br>
 	<h2>모바일에서 문자보내기-방법1</h2>
-	<p><a href ="sms:010-1234-56785">문자보내기</a></p>
+	<p><a href ="sms:01038823099?body=안녕하세요!!">ANDROID 문자보내기</a></p>
 	<br>
 	<h2>모바일에서 문자보내기-방법2</h2>
-	<input type="tel" placeholder="관리자에게 문자보내기" id="sms">
+	<input type="tel" placeholder="IPHONE 문자보내기" id="sms">
  </body>
  </html>
