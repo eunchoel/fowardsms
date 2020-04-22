@@ -6,29 +6,24 @@
 <meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">  
-    var Request = function() {  
-        this.getParameter = function(name) {  
-            var rtnval = '';  
-            var nowAddress = unescape(location.href);  
-            var parameters = (nowAddress.slice(nowAddress.indexOf('?') + 1,  
-                    nowAddress.length)).split('&');  
-            for (var i = 0; i < parameters.length; i++) {  
-                var varName = parameters[i].split('=')[0];  
-                if (varName.toUpperCase() == name.toUpperCase()) {  
-                    rtnval = parameters[i].split('=')[1];  
-                    break;  
-                }  
-            }  
-            return rtnval;  
-        }  
-    }  
-    var request = new Request();  
-</script>  
+<script>
+    // 파라메터 정보가 저장될 오브젝트
+    // common.js 같은 모든 페이지에서 로딩되는 js 파일에 넣어두면 됨.
+    var getParam = function(key){
+        var _parammap = {};
+        document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+            function decode(s) {
+                return decodeURIComponent(s.split("+").join(" "));
+            }
+ 
+            _parammap[decode(arguments[1])] = decode(arguments[2]);
+        });
+ 
+        return _parammap[key];
+    };
   
-<script type="text/javscript>  
-	var paramValue = request.getParameter('body');
-</script> 
+    alert("body : " + getParam("body"));  // a
+</script>
 <script>
 	$(document).ready(function(){
 	      console.log(paramValue);
