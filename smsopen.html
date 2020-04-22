@@ -25,7 +25,7 @@
 </script>
 <script>
 	$(document).ready(function(){
-		var message = "[" + getParam("msg") + "]%0A제주골프조인요청합니다.%0A%0A이름:%0A%0A인원:";
+		var message = "[" + getParam("msg") + "]%0A제주골프조인요청합니다.%0A%0A이름:%0A인원:";
 		if (varUA.match('android') != null) { 
 		    location.href="sms:" + getParam("pno") + "?body=" + message;
 		} else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
