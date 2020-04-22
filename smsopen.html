@@ -21,12 +21,18 @@
  
         return _parammap[key];
     };
-  
+    var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
     alert("body : " + getParam("body"));  // a
 </script>
 <script>
 	$(document).ready(function(){
-	      console.log(paramValue);
+		if (varUA.match('android') != null) { 
+		    location.href="sms:01038823099?body=" + getParam("body");
+		} else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
+		    location.href="sms:01038823099&body=" + getParam("body");
+		} else {
+		    //아이폰, 안드로이드 외 처리
+		}
 		$("#phone").click(function(){
 			$.ajax({
 				url: "https://github.com/eunchoel/fowardsms/blob/master/smsopen.html", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
