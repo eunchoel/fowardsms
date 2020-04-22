@@ -28,53 +28,16 @@
 		console.log(varUA);
 		console.log(getParam("body"));
 		if (varUA.match('android') != null) { 
-		    location.href="sms:01038823099?body=" + getParam("body");
+		    location.href="sms:" + getParam("pno") + "?body=" + getParam("msg");
 		} else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
-		    location.href="sms:01038823099&body=" + getParam("body");
+		    location.href="sms:" + getParam("pno") + "&body=" + getParam("msg");
 		} else {
 		    //아이폰, 안드로이드 외 처리
 		}
-		$("#phone").click(function(){
-			$.ajax({
-				url: "https://github.com/eunchoel/fowardsms/blob/master/smsopen.html", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
-				data: { name: "홍길동" }, // HTTP 요청과 함께 서버로 보낼 데이터
-				method: "GET", // HTTP 요청 메소드(GET, POST 등)
-				dataType: "json" // 서버에서 보내줄 데이터의 타입
-			})
-			.done(function(json) {
-				$("<h1>").text(json.title).appendTo("body");
-				$("<div class=\"content\">").html(json.html).appendTo("body");
-			})
-			.fail(function(xhr, status, errorThrown) {
-				$("#text").html("오류가 발생했다.<br>") 
-				.append("오류명: " + errorThrown + "<br>") 
-				.append("상태: " + status); })
-			.always(function(xhr, status) { 
-				$("#text").html("요청이 완료되었습니다!"); 
-			});
-		});
-		$("#sms").click(function(){
-			location.href="sms:01038823099&body=안녕하세요!!";
-		});
-		$("#mail").click(function(){
-			location.href="mailto:abc111@gmail.com?subject=테스트중입니다";
-		});
 	 });
  </script>
  </head>
  <body>
-	<br>
-	<h1>모바일 기능</h1>
-	<h2>모바일에서 전화걸기 - 방법1</h2>
-	<a href ="tel:01038823099">전화걸기</a>
-	<br>
-	<h2>모바일에서 전화걸기 - 방법2</h2>
-	<input type="button" placeholder="관리자와 통화하기" id="phone">
-	 <br>
-	<h2>모바일에서 문자보내기-방법1</h2>
-	<p><a href ="sms:01038823099?body=안녕하세요!!">ANDROID 문자보내기</a></p>
-	<br>
-	<h2>모바일에서 문자보내기-방법2</h2>
-	<input type="button" name="IPHONE 문자보내기" placeholder="IPHONE 문자보내기" id="sms">
+	<h2>모바일에서 문자보내기</h2>
  </body>
  </html>
