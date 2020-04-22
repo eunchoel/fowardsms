@@ -28,9 +28,9 @@
 		console.log(varUA);
 		console.log(getParam("body"));
 		if (varUA.match('android') != null) { 
-		    location.href="sms:" + getParam("pno") + "?body=[" + getParam("msg") + "]\\n안녕하세요!!\\n\\n내용입력:";
+		    location.href="sms:" + getParam("pno") + "?body=[" + getParam("msg") + "]%0A안녕하세요!!%0A%0A내용입력:";
 		} else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
-		    location.href="sms:" + getParam("pno") + "&body=[" + getParam("msg") + "]\\n안녕하세요!!\\n\\n내용입력:";
+		    location.href="sms:" + getParam("pno") + "&body=[" + getParam("msg") + "]%0A안녕하세요!!%0A%0A내용입력:";
 		} else {
 		    //아이폰, 안드로이드 외 처리
 		}
