@@ -28,10 +28,10 @@
   
 <script type="text/javscript>  
 	var paramValue = request.getParameter('body');
-	alert(paramValue);
 </script> 
 <script>
 	$(document).ready(function(){
+	      console.log(paramValue);
 		$("#phone").click(function(){
 			$.ajax({
 				url: "https://github.com/eunchoel/fowardsms/blob/master/smsopen.html", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
