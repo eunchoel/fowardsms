@@ -25,22 +25,34 @@
 </script>
 <script>
 	$(document).ready(function(){
-		console.log(varUA);
-		console.log(getParam("body"));
+		var message = "[" + getParam("msg") + "]%0A제주골프조인요청합니다.%0A%0A이름:%0A%0A인원:";
 		if (varUA.match('android') != null) { 
-		    location.href="sms:" + getParam("pno") + "?body=[" + getParam("msg") + "]%0A제주골프조인요청합니다.%0A%0A이름:%0A%0A인원:";
+		    location.href="sms:" + getParam("pno") + "?" + message;
 		} else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
-		    location.href="sms:" + getParam("pno") + "&body=[" + getParam("msg") + "]%0A제주골프조인요청합니다.%0A%0A이름:%0A%0A인원:";
+		    location.href="sms:" + getParam("pno") + "&" + message;
 		} else {
 		    //아이폰, 안드로이드 외 처리
 		}
+		
+		$("#android").click(function(){
+			location.href="sms:" + getParam("pno") + "?" + message;
+		});
+		$("#ios_new").click(function(){
+			location.href="sms:" + getParam("pno") + "&" + message;
+		});
+		$("#ios").click(function(){
+			location.href="sms:" + getParam("pno") + ";" + message;
+		});
 	 });
  </script>
  </head>
  <body>
 	<h2>모바일에서 문자보내기</h2>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="ANDROID 문자보내기"><br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="IPHONE(신형) 문자보내기"><br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="IPHONE(구형) 문자보내기"><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="========== ANDROID 문자보내기 ============== " id="android">
+	 <br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="========== IPHONE(신형) 문자보내기 ========== " id="ios_new">
+	 <br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="========== IPHONE(구형) 문자보내기 ========== " id="ios">
+	 <br><br>
  </body>
  </html>
